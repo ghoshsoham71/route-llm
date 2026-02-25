@@ -1,0 +1,75 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "route-llm"
+version = "0.1.0"
+description = "Adaptive rate-limit-aware LLM routing. Bring your own clients."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "route-llm contributors" }]
+keywords = ["llm", "routing", "openai", "anthropic", "rate-limit", "fallback"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "httpx>=0.27",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+    "tiktoken>=0.7",
+]
+
+[project.optional-dependencies]
+redis     = ["redis[asyncio]>=5.0"]
+dashboard = ["streamlit>=1.35", "plotly>=5.0"]
+cli       = ["typer>=0.12", "rich>=13.0"]
+yaml      = ["pyyaml>=6.0"]
+all       = ["route-llm[redis,dashboard,cli,yaml]"]
+dev       = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "respx>=0.21",
+    "ruff>=0.4",
+    "mypy>=1.10",
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+route-llm = "llm_router.cli:app"
+
+[project.urls]
+"Homepage"    = "https://github.com/your-org/route-llm"
+"Bug Tracker" = "https://github.com/your-org/route-llm/issues"
+
+# ---------------------------------------------------------------------------
+# Tool configurations
+# ---------------------------------------------------------------------------
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version  = "3.11"
+strict          = true
+ignore_missing_imports = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["llm_router"]
