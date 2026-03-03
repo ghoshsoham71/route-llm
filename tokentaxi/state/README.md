@@ -1,4 +1,4 @@
-# `tokentaxi/state/` — State Backends
+# `tokentaxi /state/` — State Backends
 
 State backends track per-provider rolling usage (RPM/TPM) and session affinity (sticky routing). The router uses the state backend on every routing decision and after every completed request.
 
@@ -37,7 +37,7 @@ Default backend. Zero dependencies. Per-process state.
 Redis-backed backend for multi-instance deployments. Requires `redis[asyncio]>=5.0`.
 
 **Sliding window implementation (atomic):**
-- RPM: Redis sorted set (`ZADD` + `ZREMRANGEBYSCORE` in a pipeline) keyed by `tokentaxi:rpm:{provider}`.
+- RPM: Redis sorted set (`ZADD` + `ZREMRANGEBYSCORE` in a pipeline) keyed by `tokentaxi :rpm:{provider}`.
 - TPM: Redis sorted set with members `"{timestamp}:{token_count}"`.
 - All reads and writes use atomic `PIPELINE` + `TRANSACTION=True` to prevent race conditions across instances.
 - Keys have TTL = `window_seconds * 2` to auto-expire.

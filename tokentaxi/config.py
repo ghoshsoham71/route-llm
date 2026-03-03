@@ -1,4 +1,4 @@
-# tokentaxi/config.py
+# tokentaxi /config.py
 """
 RouterConfig and related sub-configs.
 
@@ -141,8 +141,8 @@ class RouterConfig(BaseModel):
           GROQ_API_KEY     → registers a Groq provider
 
         Optional overrides:
-          tokentaxi_REDIS_URL      → redis_url
-          tokentaxi_WINDOW_SECONDS → window_seconds
+          tokentaxi _REDIS_URL      → redis_url
+          tokentaxi _WINDOW_SECONDS → window_seconds
         """
         from .constants import (
             DEFAULT_ANTHROPIC_MODEL,
@@ -175,11 +175,11 @@ class RouterConfig(BaseModel):
 
         data: dict[str, Any] = {"providers": providers}
 
-        redis_url = os.environ.get("tokentaxi_REDIS_URL")
+        redis_url = os.environ.get("tokentaxi _REDIS_URL")
         if redis_url:
             data["redis_url"] = redis_url
 
-        window = os.environ.get("tokentaxi_WINDOW_SECONDS")
+        window = os.environ.get("tokentaxi _WINDOW_SECONDS")
         if window:
             data["window_seconds"] = int(window)
 

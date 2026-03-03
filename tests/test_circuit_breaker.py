@@ -17,8 +17,8 @@ import time
 
 import pytest
 
-from tokentaxi.breaker.circuit import CircuitBreaker
-from tokentaxi.exceptions import CircuitOpenError
+from tokentaxi .breaker.circuit import CircuitBreaker
+from tokentaxi .exceptions import CircuitOpenError
 
 
 @pytest.mark.asyncio

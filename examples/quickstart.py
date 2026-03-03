@@ -9,7 +9,7 @@ Run with:
 import asyncio
 import os
 
-from tokentaxiimport LLMRouter, RouterRequest
+from tokentaxi import LLMRouter, RouterRequest
 
 
 async def main():

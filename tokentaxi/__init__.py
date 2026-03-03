@@ -1,6 +1,6 @@
-# tokentaxi/__init__.py
+# tokentaxi /__init__.py
 """
-tokentaxi — Adaptive rate-limit-aware LLM routing. Bring your own clients.
+tokentaxi  — Adaptive rate-limit-aware LLM routing. Bring your own clients.
 
 Public API surface:
   LLMRouter          — main class; register providers, call chat() / stream()

@@ -1,4 +1,4 @@
-# tokentaxi/providers/openai.py
+# tokentaxi /providers/openai.py
 """
 OpenAI provider adapter.
 

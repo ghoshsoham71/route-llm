@@ -16,7 +16,7 @@ import time
 
 import pytest
 
-from tokentaxi.state.memory import InMemoryStateBackend
+from tokentaxi .state.memory import InMemoryStateBackend
 
 
 @pytest.mark.asyncio
