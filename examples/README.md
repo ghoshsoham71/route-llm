@@ -1,11 +1,11 @@
 # `examples/` — Usage Examples
 
-Runnable examples demonstrating the main usage patterns for `route-llm`.
+Runnable examples demonstrating the main usage patterns for `tokentaxi `.
 
 ## Prerequisites
 
 ```bash
-pip install route-llm
+pip install tokentaxi 
 
 # Set at least one provider API key
 export OPENAI_API_KEY="sk-..."
@@ -57,7 +57,7 @@ router = LLMRouter.from_yaml("examples/router.yaml")
 Or with the CLI:
 
 ```bash
-route-llm status --config examples/router.yaml
+tokentaxi  status --config examples/router.yaml
 ```
 
 Environment variable interpolation is supported in YAML files:

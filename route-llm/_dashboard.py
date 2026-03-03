@@ -1,9 +1,9 @@
 # llm_router/_dashboard.py
 """
-Local Streamlit dashboard for route-llm.
+Local Streamlit dashboard for tokentaxi .
 
 Launch via:
-  route-llm dashboard --config router.yaml
+  tokentaxi  dashboard --config router.yaml
 
 Or directly:
   streamlit run llm_router/_dashboard.py -- --config router.yaml
@@ -24,7 +24,7 @@ try:
     import plotly.graph_objects as go  # type: ignore[import]
 except ImportError as exc:  # pragma: no cover
     print(
-        "Dashboard dependencies missing. Install with: pip install 'route-llm[dashboard]'",
+        "Dashboard dependencies missing. Install with: pip install 'tokentaxi [dashboard]'",
         file=sys.stderr,
     )
     sys.exit(1)

@@ -6,7 +6,7 @@ All tests use `pytest` with `pytest-asyncio` for async support. No real API call
 
 ```bash
 # Install dev dependencies
-pip install "route-llm[dev]"
+pip install "tokentaxi [dev]"
 
 # Run all tests
 pytest

@@ -3,13 +3,13 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "route-llm"
+name = "tokentaxi"
 version = "0.1.0"
 description = "Adaptive rate-limit-aware LLM routing. Bring your own clients."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
-authors = [{ name = "route-llm contributors" }]
+authors = [{ name = "tokentaxi  contributors" }]
 keywords = ["llm", "routing", "openai", "anthropic", "rate-limit", "fallback"]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -33,7 +33,7 @@ redis     = ["redis[asyncio]>=5.0"]
 dashboard = ["streamlit>=1.35", "plotly>=5.0"]
 cli       = ["typer>=0.12", "rich>=13.0"]
 yaml      = ["pyyaml>=6.0"]
-all       = ["route-llm[redis,dashboard,cli,yaml]"]
+all       = ["tokentaxi [redis,dashboard,cli,yaml]"]
 dev       = [
     "pytest>=8.0",
     "pytest-asyncio>=0.23",
@@ -44,11 +44,11 @@ dev       = [
 ]
 
 [project.scripts]
-route-llm = "llm_router.cli:app"
+tokentaxi  = "llm_router.cli:app"
 
 [project.urls]
-"Homepage"    = "https://github.com/your-org/route-llm"
-"Bug Tracker" = "https://github.com/your-org/route-llm/issues"
+"Homepage"    = "https://github.com/your-org/tokentaxi "
+"Bug Tracker" = "https://github.com/your-org/tokentaxi /issues"
 
 # ---------------------------------------------------------------------------
 # Tool configurations

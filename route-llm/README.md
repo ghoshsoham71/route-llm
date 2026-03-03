@@ -1,6 +1,6 @@
 # `llm_router/` — Core Package
 
-This directory contains the entire `route-llm` library. It is the installed Python package.
+This directory contains the entire `tokentaxi ` library. It is the installed Python package.
 
 ## File Index
 
@@ -13,7 +13,7 @@ This directory contains the entire `route-llm` library. It is the installed Pyth
 | `exceptions.py` | `AllProvidersFailed`, `NoProvidersConfigured`, `TokenLimitExceeded`, `CircuitOpenError`. |
 | `constants.py` | All default tuning values: scoring weights, EMA alpha, window size, circuit breaker defaults, Redis key templates. |
 | `cli.py` | `typer`-based CLI. Commands: `status` (with `--watch`), `dashboard`. |
-| `_dashboard.py` | Streamlit dashboard. Launched via `route-llm dashboard`. Auto-refreshes every 3 seconds. |
+| `_dashboard.py` | Streamlit dashboard. Launched via `tokentaxi  dashboard`. Auto-refreshes every 3 seconds. |
 
 ## Subdirectories
 
@@ -25,6 +25,6 @@ This directory contains the entire `route-llm` library. It is the installed Pyth
 ## Design Principles
 
 1. **No I/O in scoring.** The `Scorer` receives all state as arguments and never touches the state backend. This makes it trivially testable.
-2. **No SDK normalization.** Adapters wrap existing SDK clients. When OpenAI ships a new parameter, the developer updates their `openai` package — `route-llm` doesn't care.
+2. **No SDK normalization.** Adapters wrap existing SDK clients. When OpenAI ships a new parameter, the developer updates their `openai` package — `tokentaxi ` doesn't care.
 3. **Async-first.** Every I/O-touching method is `async`. The router is safe to use in any asyncio event loop.
 4. **BYOC.** `router.register()` accepts a pre-configured SDK client. No adapter creation needed.

@@ -1,6 +1,6 @@
 # tests/conftest.py
 """
-Shared pytest fixtures for route-llm tests.
+Shared pytest fixtures for tokentaxi  tests.
 """
 
 from __future__ import annotations

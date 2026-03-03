@@ -1,6 +1,6 @@
 # llm_router/exceptions.py
 """
-Custom exceptions for route-llm.
+Custom exceptions for tokentaxi .
 
 All public exceptions inherit from LLMRouterError so callers can catch
 the whole family with a single except clause if preferred.

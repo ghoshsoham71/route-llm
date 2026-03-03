@@ -1,14 +1,14 @@
-# route-llm
+# tokentaxi 
 
 **Adaptive rate-limit-aware LLM routing. Bring your own clients.**
 
-`route-llm` is a lightweight Python library that sits between your application and your LLM providers. It intelligently routes every request based on real-time provider health, rate-limit headroom, latency, and request priority — with zero network hops and no external dependencies beyond an optional Redis connection.
+`tokentaxi ` is a lightweight Python library that sits between your application and your LLM providers. It intelligently routes every request based on real-time provider health, rate-limit headroom, latency, and request priority — with zero network hops and no external dependencies beyond an optional Redis connection.
 
 ---
 
 ## The core idea — Bring Your Own Client (BYOC)
 
-Every other routing solution asks you to replace your LLM SDK. `route-llm` doesn't. You keep your existing, fully configured clients. The router wraps them and adds routing intelligence on top.
+Every other routing solution asks you to replace your LLM SDK. `tokentaxi ` doesn't. You keep your existing, fully configured clients. The router wraps them and adds routing intelligence on top.
 
 ```python
 # What you'd write today — fragile, manual, scattered
@@ -20,7 +20,7 @@ except RateLimitError:
     except RateLimitError:
         response = gemini_client.chat(...)
 
-# What you write with route-llm — once, tested, intelligent
+# What you write with tokentaxi  — once, tested, intelligent
 router = LLMRouter.from_dict({"providers": [...]})
 response = await router.chat(RouterRequest(messages=messages))
 ```
@@ -48,22 +48,22 @@ response = await router.chat(RouterRequest(messages=messages))
 
 ```bash
 # Core library — in-memory state, no extra deps
-pip install route-llm
+pip install tokentaxi 
 
 # Multi-instance deployments (Redis-backed state)
-pip install "route-llm[redis]"
+pip install "tokentaxi [redis]"
 
 # Local real-time dashboard
-pip install "route-llm[dashboard]"
+pip install "tokentaxi [dashboard]"
 
 # CLI (status command, watch mode)
-pip install "route-llm[cli]"
+pip install "tokentaxi [cli]"
 
 # YAML config support
-pip install "route-llm[yaml]"
+pip install "tokentaxi [yaml]"
 
 # Everything
-pip install "route-llm[all]"
+pip install "tokentaxi [all]"
 ```
 
 ---
@@ -198,15 +198,15 @@ async def llm_status():
 ### CLI
 
 ```bash
-route-llm status --config router.yaml
-route-llm status --watch --interval 3    # live-updating like htop
+tokentaxi  status --config router.yaml
+tokentaxi  status --watch --interval 3    # live-updating like htop
 ```
 
 ### Dashboard
 
 ```bash
-pip install "route-llm[dashboard]"
-route-llm dashboard --config router.yaml
+pip install "tokentaxi [dashboard]"
+tokentaxi  dashboard --config router.yaml
 # → open http://localhost:8501
 ```
 
@@ -238,7 +238,7 @@ w_capacity = 0.3  |  w_latency = 0.1  |  w_static = 0.6
 ## Multi-Instance Deployments
 
 ```bash
-pip install "route-llm[redis]"
+pip install "tokentaxi [redis]"
 ```
 
 ```yaml
@@ -300,7 +300,7 @@ examples/
 ## Running Tests
 
 ```bash
-pip install "route-llm[dev]"
+pip install "tokentaxi [dev]"
 pytest
 ```
 
