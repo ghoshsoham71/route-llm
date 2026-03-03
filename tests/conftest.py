@@ -1,6 +1,6 @@
 # tests/conftest.py
 """
-Shared pytest fixtures for tokentaxi  tests.
+Shared pytest fixtures for tokentaxi tests.
 """
 
 from __future__ import annotations
@@ -8,9 +8,9 @@ from __future__ import annotations
 import pytest
 import pytest_asyncio
 
-from llm_router.config import CircuitBreakerConfig, RouterConfig, RoutingWeights
-from llm_router.models import ProviderConfig
-from llm_router.state.memory import InMemoryStateBackend
+from tokentaxi.config import CircuitBreakerConfig, RouterConfig, RoutingWeights
+from tokentaxi.models import ProviderConfig
+from tokentaxi.state.memory import InMemoryStateBackend
 
 
 @pytest.fixture

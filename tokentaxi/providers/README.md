@@ -1,4 +1,4 @@
-# `llm_router/providers/` — Provider Adapters
+# `tokentaxi/providers/` — Provider Adapters
 
 Each adapter wraps a provider's async SDK client and exposes a uniform interface to the router. The router never calls provider SDKs directly — it always goes through an adapter.
 
@@ -46,7 +46,7 @@ Wraps `groq.AsyncGroq`. Groq's API is OpenAI-compatible, so the adapter is nearl
 Subclass `BaseProvider`, implement `chat()` and `stream()`, then register it:
 
 ```python
-from llm_router.providers.base import BaseProvider
+from tokentaxi.providers.base import BaseProvider
 
 class MyCustomProvider(BaseProvider):
     async def chat(self, messages, max_tokens, temperature, **kwargs):

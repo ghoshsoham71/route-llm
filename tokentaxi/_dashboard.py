@@ -1,12 +1,12 @@
-# llm_router/_dashboard.py
+# tokentaxi/_dashboard.py
 """
-Local Streamlit dashboard for tokentaxi .
+Local Streamlit dashboard for tokentaxi.
 
 Launch via:
-  tokentaxi  dashboard --config router.yaml
+  tokentaxi dashboard --config router.yaml
 
 Or directly:
-  streamlit run llm_router/_dashboard.py -- --config router.yaml
+  streamlit run tokentaxi/_dashboard.py -- --config router.yaml
 
 Shows live provider headroom bars, requests routed, fallbacks triggered,
 and average latency. Auto-refreshes every 3 seconds.
@@ -24,12 +24,12 @@ try:
     import plotly.graph_objects as go  # type: ignore[import]
 except ImportError as exc:  # pragma: no cover
     print(
-        "Dashboard dependencies missing. Install with: pip install 'tokentaxi [dashboard]'",
+        "Dashboard dependencies missing. Install with: pip install 'tokentaxi[dashboard]'",
         file=sys.stderr,
     )
     sys.exit(1)
 
-from llm_router import LLMRouter
+from tokentaxiimport LLMRouter
 
 
 def _load_router() -> LLMRouter:

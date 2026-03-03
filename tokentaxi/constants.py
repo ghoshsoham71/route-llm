@@ -1,4 +1,4 @@
-# llm_router/constants.py
+# tokentaxi/constants.py
 """
 Default constants for the LLM Router.
 All tunable values are centralised here so they can be overridden via RouterConfig
@@ -81,7 +81,7 @@ DEFAULT_GROQ_MODEL: str = "llama-3.1-70b-versatile"
 # ---------------------------------------------------------------------------
 # Redis key prefixes
 # ---------------------------------------------------------------------------
-REDIS_PREFIX: str = "llm_router"
+REDIS_PREFIX: str = "tokentaxi"
 REDIS_RPM_KEY_TMPL: str = REDIS_PREFIX + ":rpm:{provider}"
 REDIS_TPM_KEY_TMPL: str = REDIS_PREFIX + ":tpm:{provider}"
 REDIS_CIRCUIT_KEY_TMPL: str = REDIS_PREFIX + ":circuit:{provider}"

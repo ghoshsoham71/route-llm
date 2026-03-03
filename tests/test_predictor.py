@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import pytest
 
-from llm_router.engine.predictor import ExhaustionPredictor
+from tokentaxi.engine.predictor import ExhaustionPredictor
 
 
 class TestExhaustionPredictor:

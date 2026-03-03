@@ -1,14 +1,14 @@
-# tokentaxi 
+# tokentaxi
 
 **Adaptive rate-limit-aware LLM routing. Bring your own clients.**
 
-`tokentaxi ` is a lightweight Python library that sits between your application and your LLM providers. It intelligently routes every request based on real-time provider health, rate-limit headroom, latency, and request priority — with zero network hops and no external dependencies beyond an optional Redis connection.
+`tokentaxi` is a lightweight Python library that sits between your application and your LLM providers. It intelligently routes every request based on real-time provider health, rate-limit headroom, latency, and request priority — with zero network hops and no external dependencies beyond an optional Redis connection.
 
 ---
 
 ## The core idea — Bring Your Own Client (BYOC)
 
-Every other routing solution asks you to replace your LLM SDK. `tokentaxi ` doesn't. You keep your existing, fully configured clients. The router wraps them and adds routing intelligence on top.
+Every other routing solution asks you to replace your LLM SDK. `tokentaxi` doesn't. You keep your existing, fully configured clients. The router wraps them and adds routing intelligence on top.
 
 ```python
 # What you'd write today — fragile, manual, scattered
@@ -20,7 +20,7 @@ except RateLimitError:
     except RateLimitError:
         response = gemini_client.chat(...)
 
-# What you write with tokentaxi  — once, tested, intelligent
+# What you write with tokentaxi — once, tested, intelligent
 router = LLMRouter.from_dict({"providers": [...]})
 response = await router.chat(RouterRequest(messages=messages))
 ```
@@ -48,22 +48,22 @@ response = await router.chat(RouterRequest(messages=messages))
 
 ```bash
 # Core library — in-memory state, no extra deps
-pip install tokentaxi 
+pip install tokentaxi
 
 # Multi-instance deployments (Redis-backed state)
-pip install "tokentaxi [redis]"
+pip install "tokentaxi[redis]"
 
 # Local real-time dashboard
-pip install "tokentaxi [dashboard]"
+pip install "tokentaxi[dashboard]"
 
 # CLI (status command, watch mode)
-pip install "tokentaxi [cli]"
+pip install "tokentaxi[cli]"
 
 # YAML config support
-pip install "tokentaxi [yaml]"
+pip install "tokentaxi[yaml]"
 
 # Everything
-pip install "tokentaxi [all]"
+pip install "tokentaxi[all]"
 ```
 
 ---
@@ -73,7 +73,7 @@ pip install "tokentaxi [all]"
 ### From a dictionary
 
 ```python
-from llm_router import LLMRouter, RouterRequest
+from tokentaxiimport LLMRouter, RouterRequest
 
 router = LLMRouter.from_dict({
     "providers": [
@@ -99,7 +99,7 @@ print(response.attempts)    # 1
 ```python
 import openai
 import anthropic
-from llm_router import LLMRouter
+from tokentaxiimport LLMRouter
 
 openai_client    = openai.AsyncOpenAI(api_key="sk-...", timeout=30, max_retries=0)
 anthropic_client = anthropic.AsyncAnthropic(api_key="sk-ant-...", timeout=30)
@@ -198,15 +198,15 @@ async def llm_status():
 ### CLI
 
 ```bash
-tokentaxi  status --config router.yaml
-tokentaxi  status --watch --interval 3    # live-updating like htop
+tokentaxi status --config router.yaml
+tokentaxi status --watch --interval 3    # live-updating like htop
 ```
 
 ### Dashboard
 
 ```bash
-pip install "tokentaxi [dashboard]"
-tokentaxi  dashboard --config router.yaml
+pip install "tokentaxi[dashboard]"
+tokentaxi dashboard --config router.yaml
 # → open http://localhost:8501
 ```
 
@@ -238,7 +238,7 @@ w_capacity = 0.3  |  w_latency = 0.1  |  w_static = 0.6
 ## Multi-Instance Deployments
 
 ```bash
-pip install "tokentaxi [redis]"
+pip install "tokentaxi[redis]"
 ```
 
 ```yaml
@@ -253,7 +253,7 @@ With Redis, all router instances share the same accurate picture of provider sta
 ## Project Structure
 
 ```
-llm_router/
+tokentaxi/
 ├── __init__.py          # Public API exports
 ├── router.py            # LLMRouter — main class
 ├── config.py            # RouterConfig, RoutingWeights, CircuitBreakerConfig
@@ -300,7 +300,7 @@ examples/
 ## Running Tests
 
 ```bash
-pip install "tokentaxi [dev]"
+pip install "tokentaxi[dev]"
 pytest
 ```
 

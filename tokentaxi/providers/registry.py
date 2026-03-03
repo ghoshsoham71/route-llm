@@ -1,4 +1,4 @@
-# llm_router/providers/registry.py
+# tokentaxi/providers/registry.py
 """
 ProviderRegistry — thread-safe container for all registered providers.
 

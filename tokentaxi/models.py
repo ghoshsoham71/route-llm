@@ -1,6 +1,6 @@
-# llm_router/models.py
+# tokentaxi/models.py
 """
-Pydantic v2 data models used throughout tokentaxi .
+Pydantic v2 data models used throughout tokentaxi.
 
 These are part of the public API surface — changes here require a major
 version bump once the library reaches 1.0.

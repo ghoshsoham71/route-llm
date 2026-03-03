@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import pytest
 
-from llm_router.engine.scorer import LatencyTracker, Scorer
+from tokentaxi.engine.scorer import LatencyTracker, Scorer
 
 
 def make_score(scorer, **kwargs):
@@ -145,14 +145,14 @@ class TestHighPriorityReserve:
 class TestLatencyTracker:
     def test_initial_latency_is_default(self):
         lt = LatencyTracker()
-        from llm_router.constants import INITIAL_LATENCY_MS
+        from tokentaxi.constants import INITIAL_LATENCY_MS
         assert lt.get("unknown") == INITIAL_LATENCY_MS
 
     def test_ema_updates_toward_observation(self):
         lt = LatencyTracker(alpha=0.5)
         lt.update("p", 1000.0)
         ema = lt.get("p")
-        from llm_router.constants import INITIAL_LATENCY_MS
+        from tokentaxi.constants import INITIAL_LATENCY_MS
         # After one update with alpha=0.5: 0.5*1000 + 0.5*500 = 750
         assert ema == pytest.approx(750.0, rel=0.01)
 

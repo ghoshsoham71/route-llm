@@ -1,12 +1,12 @@
-# llm_router/cli.py
+# tokentaxi/cli.py
 """
-CLI entry point for tokentaxi .
+CLI entry point for tokentaxi.
 
 Available commands:
-  tokentaxi  status [--config router.yaml] [--watch] [--interval N]
-  tokentaxi  dashboard [--config router.yaml]
+  tokentaxi status [--config router.yaml] [--watch] [--interval N]
+  tokentaxi dashboard [--config router.yaml]
 
-Requires: pip install "tokentaxi [cli]"
+Requires: pip install "tokentaxi[cli]"
 """
 
 from __future__ import annotations
@@ -23,13 +23,13 @@ try:
     from rich.table import Table
 except ImportError as exc:  # pragma: no cover
     raise ImportError(
-        "CLI dependencies missing. Install with: pip install 'tokentaxi [cli]'"
+        "CLI dependencies missing. Install with: pip install 'tokentaxi[cli]'"
     ) from exc
 
 from .router import LLMRouter
 
 app = typer.Typer(
-    name="tokentaxi ",
+    name="tokentaxi",
     help="Adaptive rate-limit-aware LLM routing. Bring your own clients.",
     add_completion=False,
 )
@@ -122,7 +122,7 @@ def dashboard(
     except ImportError:
         typer.echo(
             "Streamlit is required for the dashboard. "
-            "Install with: pip install 'tokentaxi [dashboard]'",
+            "Install with: pip install 'tokentaxi[dashboard]'",
             err=True,
         )
         raise typer.Exit(1)

@@ -17,8 +17,8 @@ import time
 
 import pytest
 
-from llm_router.breaker.circuit import CircuitBreaker
-from llm_router.exceptions import CircuitOpenError
+from tokentaxi.breaker.circuit import CircuitBreaker
+from tokentaxi.exceptions import CircuitOpenError
 
 
 @pytest.mark.asyncio

@@ -22,16 +22,16 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-from llm_router import (
+from tokentaxiimport (
     AllProvidersFailed,
     LLMRouter,
     NoProvidersConfigured,
     RouterRequest,
     RouterResponse,
 )
-from llm_router.config import CircuitBreakerConfig, RouterConfig, RoutingWeights
-from llm_router.models import ProviderConfig
-from llm_router.providers.base import BaseProvider
+from tokentaxi.config import CircuitBreakerConfig, RouterConfig, RoutingWeights
+from tokentaxi.models import ProviderConfig
+from tokentaxi.providers.base import BaseProvider
 
 
 class MockProvider(BaseProvider):

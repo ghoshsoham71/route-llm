@@ -6,7 +6,7 @@ All tests use `pytest` with `pytest-asyncio` for async support. No real API call
 
 ```bash
 # Install dev dependencies
-pip install "tokentaxi [dev]"
+pip install "tokentaxi[dev]"
 
 # Run all tests
 pytest
@@ -18,7 +18,7 @@ pytest -v
 pytest tests/test_scorer.py
 
 # Run with coverage
-pytest --cov=llm_router --cov-report=term-missing
+pytest --cov=tokentaxi--cov-report=term-missing
 ```
 
 ## Files

@@ -1,4 +1,4 @@
-# `llm_router/breaker/` — Circuit Breaker
+# `tokentaxi/breaker/` — Circuit Breaker
 
 The circuit breaker prevents the router from sending requests to a provider that is repeatedly failing, giving it time to recover before being re-admitted.
 
@@ -27,7 +27,7 @@ await cb.get_status("openai")      # dict with circuit_open, failure_count, open
 When a `redis_client` is passed to `CircuitBreaker.__init__`, the OPEN state is stored as a Redis key with TTL equal to `cooldown_seconds`:
 
 ```
-Key:   llm_router:circuit:{provider}
+Key:   tokentaxi:circuit:{provider}
 Value: "1"
 TTL:   cooldown_seconds
 ```
